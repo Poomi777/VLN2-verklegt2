@@ -6,5 +6,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("This is the home page")
+    return render(/templates/homepage.html)
 
