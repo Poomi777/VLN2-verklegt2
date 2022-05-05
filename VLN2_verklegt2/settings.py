@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'firesaleH40.apps.Firesaleh40Config',
     'homepage.apps.HomepageConfig',
+    'my_listings.apps.MyListingsConfig',
 ]
 
 MIDDLEWARE = [
