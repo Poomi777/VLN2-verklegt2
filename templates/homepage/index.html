@@ -4,5 +4,9 @@
         <h2>sidduliddu virkadi</h2>
         <h3>this is HOMEPAGE APP</h3>
     </div>
+    {% for listing in listings %}
+        <h4>{{ listings.name }}</h4>
+        <p>{{ listings.price }}$</p>
+    {% endfor %}
 
 {% endblock %}
