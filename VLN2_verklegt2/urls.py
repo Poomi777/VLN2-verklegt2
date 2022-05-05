@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('my_bids/', include('my_bids.urls')),
     path('categories/', include('categories.urls')),
+    path('checkout/', include('checkout.urls')),
 ]
