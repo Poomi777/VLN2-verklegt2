@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'my_listings.apps.MyListingsConfig',
     'new_listing.apps.NewListingConfig',
+    'my_bids.apps.MyBidsConfig',
 ]
 
 MIDDLEWARE = [
