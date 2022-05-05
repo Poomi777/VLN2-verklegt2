@@ -23,4 +23,5 @@ urlpatterns = [
     path('new_listing/', include('new_listing.urls')),
     path('admin/', admin.site.urls),
     path('my_bids/', include('my_bids.urls')),
+    path('categories/', include('categories.urls')),
 ]
