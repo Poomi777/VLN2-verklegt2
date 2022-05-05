@@ -5,6 +5,6 @@ from templates import homepage
 
 
 def index(request):
-    return render(request, 'homepage/index.html', context)
+    return render(request, 'homepage/index.html')
 
 
