@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'my_listings.apps.MyListingsConfig',
     'new_listing.apps.NewListingConfig',
     'my_bids.apps.MyBidsConfig',
+    'checkout.apps.CheckoutConfig',
 ]
 
 MIDDLEWARE = [
