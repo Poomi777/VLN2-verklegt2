@@ -1,14 +1,39 @@
-.navbar {
-    display: block;
-
-}
 
 .container-fluid {
-    background-color: aliceblue;
-    flex: 1;
+    display: flex;
+    border-bottom: black;
+    width: 100%;
+    align-items: stretch;
+    height: 5em;
+    background-color: aquamarine;
+
 }
 
 .navbar-brand {
     color: rgba(255,0,0,0.7);
 
+}
+
+.navbar-nav {
+    height: available;
+    float: left;
+    flex-grow: 1;
+    width: auto;
+    flex-wrap: nowrap;
+    background-color: lightcoral;
+}
+
+li {
+    display: inline;
+    margin: 1em;
+    padding: 1em;
+    flex-grow: 1;
+
+}
+
+.collapse {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: stretch;
 }

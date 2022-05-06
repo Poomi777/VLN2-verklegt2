@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <p>this is userprofile</p>
+    {% for list in my_profile %}
+        <div>
+        <h4>{{ list.Name }}</h4>
+        <p>{{ list.Image }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
