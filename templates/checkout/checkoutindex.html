@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <p>Checkout app, pay me your money</p>
+    {% for list in My_categorires %}
+        <div>
+        <h4>{{ list.Categorie }}</h4>
+        <p>{{ list.product }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
