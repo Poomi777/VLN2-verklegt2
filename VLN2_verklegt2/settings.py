@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import categories.apps
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -43,6 +45,8 @@ INSTALLED_APPS = [
     'new_listing.apps.NewListingConfig',
     'my_bids.apps.MyBidsConfig',
     'checkout.apps.CheckoutConfig',
+    'categories.apps.CategoriesConfig',
+    'userprofile.apps.UserprofileConfig',
 ]
 
 MIDDLEWARE = [

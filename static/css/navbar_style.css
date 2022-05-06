@@ -1,4 +1,14 @@
 .navbar {
-    min-height: 214px;
-    width: 50%;
+    display: block;
+
+}
+
+.container-fluid {
+    background-color: aliceblue;
+    flex: 1;
+}
+
+.navbar-brand {
+    color: rgba(255,0,0,0.7);
+
 }
