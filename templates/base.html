@@ -8,9 +8,14 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     </head>
     <body>
-    {% include 'navigation.html' %}
-    <h1>BASE TEMPLATE EXAMPLE</h1>
+    <div class="nav">
+        {% include 'navigation.html' %}
+    </div>
+    <span></span>
+    <div class="content-container">
+        <h1>BASE TEMPLATE EXAMPLE</h1>
         {% block content %}
         {% endblock %}
+    </div>
     </body>
     </html>

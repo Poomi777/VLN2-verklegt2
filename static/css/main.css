@@ -1,7 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 .homepagecss {
     background-color: green;
 }
 
 body {
-    margin: 3em;
+    margin: .5em;
+
+}
+.content-container {
+    display: block;
+    padding-top: 159px;
+    flex-wrap: wrap;
+    width: 100%;
 }
