@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+My_categorires = [
+    {'Categorie': 'Tech', 'Product': 'Iphone'},
+    {'Categorie': 'Housing', 'product': 'Bread'},
+
+]
 
 def index(request):
-    return render(request, 'categories/categoriesindex.html')
+    return render(request, 'categories/categoriesindex.html', context={'My_categorires': My_categorires})
 
