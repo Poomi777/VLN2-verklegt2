@@ -88,8 +88,12 @@ WSGI_APPLICATION = 'VLN2_verklegt2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'firesale-db',
+        'USER': 'Fire-sale-db-user',
+        'PASSWORD': 'Abc12345',
+        'HOST': '34.105.169.58',
+        'PORT': '5432'
     }
 }
 

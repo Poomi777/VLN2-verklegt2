@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 My_profile = [
-    {'Name': 'ddaa', 'Image':'insertpicture '},
-    {'Name': 'Daniel', 'Image':'insertpicture'}
+    {'Name': 'ddaa', 'Image':'static/images/'},
+    {'Name': 'Daniel', 'Image': 'static/images/'}
 
 ]
 def index(request):
