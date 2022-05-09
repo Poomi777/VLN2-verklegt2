@@ -1,12 +1,11 @@
 from django.shortcuts import render
+from categories.models import ListingCategory
 
-My_categorires = [
-    {'Categorie': 'Tech', 'Product': 'Iphone','price': 699.99},
-    {'Categorie': 'Housing', 'product': 'Bread', 'Price': 6.99},
 
-]
+
+
 
 def index(request):
-    context = {'My_categorires': My_categorires}
+    context = {'My_categorires': ListingCategory.objects.all().order_by('name')}
     return render(request, 'categories/categoriesindex.html', context)
 
