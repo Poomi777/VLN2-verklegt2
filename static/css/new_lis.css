@@ -1,0 +1,106 @@
+.newlist-header {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.newlist-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4em;
+    padding: 5em;
+    margin-right: 10em;
+    margin-left: 10em;
+
+
+}
+
+.newlistingsPrice {
+    order: 3;
+    flex: 0 0 50%;
+
+}
+
+ewlistingsName {
+    flex: 0 0 50%;
+    order: 0;
+}
+
+.newlistingsCondtition {
+    flex: 0 0 100%;
+    order: 5;
+}
+
+.newlistingsDescription {
+    flex: 0 0 50%;
+    order: 2;
+}
+
+.newlistingsImages {
+    flex: 0 0 50%;
+    order: 4;
+}
+
+.inputfeild {
+    display: inherit;
+    max-width: 250px;
+    min-width: 100px;
+    border-radius: 15px;
+    background-color: #f8f7ff;
+    height: 2em;
+}
+
+.newlistitem {
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputdesc {
+    min-height: 100px;
+}
+
+.confirm-cancel {
+    display: flex;
+    flex: 1 0 70%;
+    height: auto;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancelbutton:hover {
+    background-color: red;
+}
+
+.confirmbutton:hover {
+    background-color: greenyellow;
+}
+
+.confirmbutton {
+    background-color: #36a751;
+    height: 70px;
+    width: 70px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px black;
+    border: 1px rgba(0,0,0,0.5);
+
+    margin: 2em;
+}
+
+.cancelbutton {
+    background-color: #a70f00;
+    height: 70px;
+    width: 70px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px black;
+    border: 1px rgba(0,0,0,0.5);
+
+    margin: 2em;
+}
+

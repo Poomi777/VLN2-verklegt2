@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">New Listing</h2>
+    <div class="newlist-container">
+        <div class="newlistitem newlistingsName">
+            <lable class="newlisting newlistingsName"> Name: </lable>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsPrice">
+            <lable class="newlisting"> Price: </lable>
+            <input class="inputfeild inputname" type="number" name="nameinput"> $ </input>
+        </div>
+        <div class="newlistitem newlistingsCondtition">
+            <lable class="newlisting newlistingsCondtition"> Condition: </lable>
+        </div>
+        <div class="newlistitem newlistingsDescription">
+            <lable class="newlisting "> Description: </lable>
+            <input class="inputfeild inputdesc" type="text" name="descriptioninput">
+        </div>
+        <div class="newlistitem newlistingsImages">
+            <lable class="newlisting newlistingsImages"> Images: </lable>
+        </div>
+    </div>
+    <div class="confirm-cancel button">
+        <button class="confirmbutton greenbutton"> Confirm </button>
+        <button class="cancelbutton redbutton"> Cancel </button>
+    </div>
+
+
+{% endblock %}
+

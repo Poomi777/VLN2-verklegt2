@@ -5,5 +5,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'new_listing/index.html')
+    return render(request, 'new_listing/newlist_index.html')
 
