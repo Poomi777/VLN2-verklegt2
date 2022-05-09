@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
+<!-- NAME THESE CLASSES??? -->
 {% block content %}
-    <h2>this is MY LISTINGS APP</h2>
-    {% for list in mylist %}
-        <div>
-        <h4>{{ list.Name }}</h4>
-        <p>{{ list.price }}</p>
-        </div>
-    {% endfor %}
+    <h1 class="">LIST OF LISTINGS</h1>
+    <div class="list-listings">
+        {% for item in listings %}
+            {% include 'my_listings/single_listing.html' with item=item %}
+        {% endfor %}
+    </div>
 {% endblock %}
