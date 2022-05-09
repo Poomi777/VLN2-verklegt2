@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,13 +33,9 @@
         <li class="nav-link item1"><a href="{% url 'my_listings-index' %}">My listings </a></li>
         <li class="nav-link item2"><a href="{% url 'new_listing-index' %}">New Listing</a></li>
         <li class="nav-link item3"><a href="{% url 'my_bids-index' %}">My bids</a></li>
-          <li class="nav-link item4"><a href="{% url 'checkout-index' %}">
-              {% for list in mylist %}
-            <div>
-            <h4>{{ list.Name }}</h4>
-            <p>{{ list.price }}</p>
-        </div>
-    {% endfor %}
+          <li class="nav-link item4"><a href="{% url 'profile-index' %}">
+            {{ myprofile.Name }}
+            {{ myprofile.image }}
           </a></li>
 
 
