@@ -15,9 +15,6 @@
     margin-right: 10em;
     margin-left: 10em;
     padding: 5em;
-
-
-
 }
 
 .newlistingsPrice {
@@ -114,4 +111,10 @@
 .unchecked {
     color:grey;
 }
+
+.nlcondition {
+    order: -1;
+}
+
+
 
