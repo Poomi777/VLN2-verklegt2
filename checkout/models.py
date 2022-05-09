@@ -16,7 +16,8 @@ class Cart(models.Model):
     postal_code = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        pass
+        #return self.name
 
 
 class Payment(models.Model):

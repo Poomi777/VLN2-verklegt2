@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'checkout.apps.CheckoutConfig',
     'categories.apps.CategoriesConfig',
     'userprofile.apps.UserprofileConfig',
+    'login_page.apps.LoginPageConfig',
 ]
 
 MIDDLEWARE = [
