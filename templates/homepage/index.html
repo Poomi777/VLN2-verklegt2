@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+    <link rel=”stylesheet” href=”{% static 'css/listings.css' %}" />
+{% endblock %}
 {% block content %}
     <div class="homepagecss">
-        <h2 class="homepage_tite">Active Listings</h2>
+        <h2 class="homepage_title">Active Listings</h2>
     </div>
     <div class="container-listings">
     {% for list in Listings %}

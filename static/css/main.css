@@ -30,4 +30,71 @@ body {
 /*newlistings */
 
 
+/*HomepageAllListings */
+.container-listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.Single_listing {
+    display: flex;
+    flex: 1 0 30%;
+    justify-content: center;
+    gap: 20%;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.listing_img {
+    max-height: 20em;
+    max-width: 20em;
+}
+
+.homepage_title {
+    display: flex;
+    align-self: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.listing_price {
+    align-self: end;
+    text-decoration: none;
+}
+
+/* listing details */
+.container-listing-desc {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.VL_header {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    order: -20;
+}
+
+.VL_image {
+    justify-self: left;
+    order: -1;
+    height: 40%;
+    width: 40%;
+}
+
+.VL_description {
+    order: 0;
+
+}
+
+.VL_price {
+    align-self: end;
+}
+
+
 
