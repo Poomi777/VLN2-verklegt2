@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ listing.name }}</h1>
+    <p>{{ listing.listing_description }}</p>
+    <p>{{ listing.listing_price }} ISK</p>
+    <p>Highest offer: {{ listing.listing_highest_offer }}</p>
+    <img src="{{ listing.listing_image_url }}" class="listing-img" />
+    <p>Date listed: {{ listing.listing_date }}</p>
+
+<!-- remember to put posted by: [name of user here] -->
+{% endblock %}
+
+<!-- % for candy_image in candy.candyimage_set.all % -->
