@@ -1,6 +1,6 @@
 <div class="Single_listing">
-    <a href="#">
-        <img class="listing_img" src="{{ Listing.listingimage_set.first.listing_image_url }}"/>
+    <a href="/{{ list.listing_id }}">
+        <img class="listing_img" src="{{ list.listing_image_url }}"/>
         <h4 class="listing_name">
             {{ list.name }}
         </h4>

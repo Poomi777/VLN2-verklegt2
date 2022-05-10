@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container-listing-desc">
+    <h1 class="VL_header">{{ listing.name }}</h1>
+    <p class="VL_description">{{ listing.listing_description }}</p>
+    <p class="VL_listing_price">{{ listing.listing_price }} ISK</p>
+    <p class="VL_offer">Highest offer: {{ listing.listing_highest_offer }}</p>
+    <img class="VL_image" src="{{ listing.listing_image_url }}"  />
+    <p class="VL_date">Date listed: {{ listing.listing_date }}</p>
+    </div>
+
+<!-- remember to put posted by: [name of user here] -->
+{% endblock %}
+
+<!-- % for candy_image in candy.candyimage_set.all % -->
