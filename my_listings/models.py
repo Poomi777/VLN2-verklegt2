@@ -20,4 +20,4 @@ class Listing(models.Model):
     listing_date = models.DateField(default=timezone.now)
 
     def __str__(self):
-       return self.name
+       return self.name, self.listing_id

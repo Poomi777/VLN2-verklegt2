@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="homepagecss">
-        <h2>sidduliddu virkadi</h2>
-        <h3>this is HOMEPAGE APP</h3>
+        <h2 class="homepage_tite">Active Listings</h2>
     </div>
-    {% for listing in listings %}
-        <h4>{{ listings.name }}</h4>
-        <p>{{ listings.price }}$</p>
+    <div class="container-listings">
+    {% for list in Listings %}
+        {% include 'homepage/single_listing.html' with list=list %}
     {% endfor %}
-
+    </div>
 {% endblock %}
