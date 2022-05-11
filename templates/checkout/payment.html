@@ -8,6 +8,14 @@
         </div>
     {% endfor %}
 
+    <form class="form form-horizontal" action="{% url 'payment-index' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button><a href="{% url 'checkout-index' %}">Previous</a></button>
+        <input type="submit" value="Next" class="btn btn-primary pull-right" style="clear:both; margin: 10px 0" />
+    </form>
+
+    <!--
     <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">Payment information</h2>
     <div class="newlist-container">
         <div class="newlistitem newlistingsName">
@@ -34,5 +42,5 @@
     <div class="confirm-cancel button">
         <button><a href="{% url 'checkout-index' %}">Previous</a></button>
         <button><a href="{% url 'review_order-index' %}">Next</a></button>
-    </div>
+    </div> -->
 {% endblock %}

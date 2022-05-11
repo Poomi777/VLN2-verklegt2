@@ -15,9 +15,9 @@ class Cart(models.Model):
     country = models.CharField(max_length=30, null=False, blank=False)
     postal_code = models.IntegerField()
 
-    def __str__(self):
-        pass
-        #return self.name
+    # def __str__(self):
+       # pass
+        # return self.name
 
 
 class Payment(models.Model):
