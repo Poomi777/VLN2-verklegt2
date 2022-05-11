@@ -15,10 +15,12 @@ def index(request):
     context = {'listings': Listing.objects.all().order_by('listing_date')}
     return render(request, 'my_listings/ml_index.html', context)
 
-def get_listing_by_id(request, id):
+
+def get_listing_by_id(request, listid):
     return render(request, 'my_listings/listing_details.html', {
-        'listing': get_object_or_404(Listing, pk=id)
+        'listing': get_object_or_404(Listing, pk=listid)
     })
+
 
 def create_listing(request):
     if request.method == 'POST':
