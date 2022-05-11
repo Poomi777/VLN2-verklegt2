@@ -8,13 +8,12 @@ class ListingCreateForm(ModelForm):
 
     class Meta:
         model = Listing
-        exclude = ['listing_id', 'listing_highest_offer', 'user_id']
+        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date', 'listing_image_url']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'listing_description': widgets.TextInput(attrs={'class': 'form-control'}),
             'listing_category': widgets.Select(attrs={'class': 'form-control'}),  # kíkja á þetta aftur
             'listing_price': widgets.NumberInput(attrs={'class': 'form-control'}),
             'listing_condition': widgets.NumberInput(attrs={'class': 'form-control'}),
-            # 'listing_date': widgets.???????
             # 'on-sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
