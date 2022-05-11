@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
 from my_listings.forms.listing_form import ListingCreateForm
 from my_listings.models import Listing
+#from django.http import HttpResponse
 
 # Create your views here.
 # mylist = [
@@ -16,9 +16,9 @@ def index(request):
     return render(request, 'my_listings/ml_index.html', context)
 
 
-def get_listing_by_id(request, listid):
+def get_listing_by_id(request, id):
     return render(request, 'my_listings/listing_details.html', {
-        'listing': get_object_or_404(Listing, pk=listid)
+        'listing': get_object_or_404(Listing, pk=id)
     })
 
 
