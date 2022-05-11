@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for list in My_categorires %}
+        <div>
+        <h4>{{ list.Categorie }}</h4>
+        <p>{{ list.product }}</p>
+        </div>
+    {% endfor %}
+
+    <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">Payment information</h2>
+    <div class="newlist-container">
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Cardholder name: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Card number: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Month expiration: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Year expiration: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> CVC: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+    </div>
+    <div class="confirm-cancel button">
+        <button><a href="{% url 'checkout-index' %}">Previous</a></button>
+        <button><a href="{% url 'review_order-index' %}">Next</a></button>
+    </div>
+{% endblock %}

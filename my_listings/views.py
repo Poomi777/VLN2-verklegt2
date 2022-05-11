@@ -26,9 +26,7 @@ def create_listing(request):
     if request.method == 'POST':
         form = ListingCreateForm(data=request.POST)
         if form.is_valid():
-            listing = form.save()
-            listing_image = Listing(listing_image_url=request.POST['image'], listing=listing)
-            listing_image.save()
+            form.save()
             return redirect('my_listings-index')
     else:
         form = ListingCreateForm()

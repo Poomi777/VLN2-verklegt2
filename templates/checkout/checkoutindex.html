@@ -1,10 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>Checkout app, pay me your money</p>
+
     {% for list in My_categorires %}
         <div>
         <h4>{{ list.Categorie }}</h4>
         <p>{{ list.product }}</p>
         </div>
     {% endfor %}
+
+    <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">Shipping information</h2>
+    <div class="newlist-container">
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> First name: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Last name: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Street name: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Apartment number: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> City: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+         <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Country: </label>
+            <input class="inputfeild inputname newlistingsName" type="text" name="nameinput">
+        </div>
+        <div class="newlistitem newlistingsName">
+            <label class="newlisting newlistingsName"> Postal code: </label>
+            <input class="inputfeild inputname newlistingsName" type="number" name="nameinput">
+        </div>
+    </div>
+    <div class="confirm-cancel button">
+        <button><a href="{% url 'homepage-index' %}">Previous</a></button>
+        <button><a href="{% url 'payment-index' %}">Next</a></button>
+    </div>
 {% endblock %}

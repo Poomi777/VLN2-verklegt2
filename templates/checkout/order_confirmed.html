@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for list in My_categorires %}
+        <div>
+        <h4>{{ list.Categorie }}</h4>
+        <p>{{ list.product }}</p>
+        </div>
+    {% endfor %}
+
+    <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">Order confirmed!!!!</h2>
+    <div class="newlist-container">
+
+    </div>
+    <div class="confirm-cancel button">
+        <button><a href="{% url 'homepage-index' %}">Homepage</a></button>
+        <button><a href="{% url 'profile-index' %}">My account</a></button>
+    </div>
+{% endblock %}
