@@ -10,7 +10,7 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(date=request.POST)
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
