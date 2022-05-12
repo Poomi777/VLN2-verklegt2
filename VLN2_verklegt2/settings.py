@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'firesaleH40.apps.Firesaleh40Config',
     'homepage.apps.HomepageConfig',
     'my_listings.apps.MyListingsConfig',
-    'new_listing.apps.NewListingConfig',
     'my_bids.apps.MyBidsConfig',
     'checkout.apps.CheckoutConfig',
     'categories.apps.CategoriesConfig',
