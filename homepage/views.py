@@ -33,7 +33,7 @@ def update_listing(request, id):
             return redirect('listing_details', id=id)
     else:
         form = ListingUpdateForm(instance=instance)
-    return render(request, 'my_listings/update_candy.html', {
+    return render(request, 'my_listings/update_listing.html', {
         'form': form,
         'id': id
     })
