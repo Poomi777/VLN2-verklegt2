@@ -10,6 +10,8 @@
     <p class="VL_date">Date listed: {{ listing.listing_date }}</p>
     </div>
 
+    <a href="{% url 'my_delete_listing' listing.listing_id %}" class="block btn btn-primary">Delete listing</a>
+    <a href="{% url 'update_listing' listing.listing_id %}" class="block btn btn-primary">Update listing</a>
 <!-- remember to put posted by: [name of user here] -->
 {% endblock %}
 

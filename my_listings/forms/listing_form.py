@@ -29,3 +29,19 @@ class ListingCreateForm(ModelForm):
             'listing_image_url': widgets.TextInput(attrs={'class': 'form_control', 'required': True})
             # 'on-sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
+
+
+class ListingUpdateForm(ModelForm):
+
+    class Meta:
+        model = Listing
+        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date']
+        widgets = {
+            'name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'listing_description': widgets.TextInput(attrs={'class': 'form-control'}),
+            'listing_category': widgets.Select(attrs={'class': 'form-control'}),  # kíkja á þetta aftur
+            'listing_price': widgets.NumberInput(attrs={'class': 'form-control'}),
+            'listing_condition': widgets.RadioSelect(attrs={'class': 'checkbox'}, choices=CONDITION_CHOICES),
+            'listing_image_url': widgets.TextInput(attrs={'class': 'form_control', 'required': True})
+            # 'on-sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
+        }
