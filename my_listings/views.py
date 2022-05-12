@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from my_listings.forms.listing_form import ListingCreateForm, ListingUpdateForm
+from my_listings.forms.listing_form import ListingCreateForm, ListingUpdateForm, Listing_Selling_Update
 from my_listings.models import Listing
 from userprofile.models import User
 from django.http import HttpResponse, JsonResponse
@@ -73,3 +73,21 @@ def update_listing(request, id):
         'form': form,
         'id': id
     })
+
+
+def sold_listing(request, id):
+    instance = get_object_or_404(Listing, pk=id)
+    if request.method == 'POST':
+        form = Listing_Selling_Update(data=request.POST, instance=instance)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.listing_highest_offer = '-10'
+            instance.save()
+            return redirect('/')
+    else:
+        form = Listing_Selling_Update(instance=instance)
+    return render(request, 'my_listings/ml_index.html', {
+        'form': form,
+        'id': id
+    })
+

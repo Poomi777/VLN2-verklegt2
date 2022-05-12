@@ -4,8 +4,20 @@
 <div class="single-listing-container">
     <a href="/my_listings/{{ item.listing_id }}" class="actual-listing-container">
         <img class="listing-img" src="{{ item.listing_image_url }}" />
-        <h4 class="single-listing-name">{{ item.name }}</h4>
+        <h4 class="single-listing-name">{{ item.name }}, {{ item.listing_price }}$</h4>
         <p class="para-sl">{{ item.listing_description }}</p>
-        <input type="button" class="btn rightbtn">
+        <div class="offer">
     </a>
+        {% if item.listing_highest_offer == '-10' %}
+            <p class="offertext">Listing Sold</p>
+        {% elif item.listing_highest_offer != "" %}
+            <p class="offertext">Highest Offer: {{ item.listing_highest_offer }}</p>
+        <a href="{% url 'Sold_listing' item.listing_id %}" ><input type="button" class="btn rightbtn" value="Accept Offer"></a>
+
+
+            {% else %}
+            <p class="offertext">Listing has no offers</p>
+        {% endif %}
+    </div>
+
 </div>

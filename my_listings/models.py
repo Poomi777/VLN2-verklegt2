@@ -18,7 +18,7 @@ class Listing(models.Model):
     listing_description = models.CharField(max_length=500)
     listing_condition = models.IntegerField()
     listing_price = models.FloatField()
-    listing_highest_offer = models.CharField(max_length=30)
+    listing_highest_offer = models.CharField(max_length=30, default=0)
     listing_image_url = models.CharField(max_length=500)
     listing_date = models.DateField(default=timezone.now)
 
