@@ -10,6 +10,21 @@ from userprofile.forms.Userinfo import UserinfoForm
 def index(request):
     return render(request, 'userprofile/profile_index.html')
 
+
+def userinforegister(request):
+    if request.method == 'POST':
+        form = UserinfoForm(data=request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.userID = request.user
+            instance.save()
+            return redirect('homepage-index')
+
+    return render(request, 'userprofile/register.html', {
+        'form': UserinfoForm()
+    })
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
@@ -21,21 +36,3 @@ def register(request):
     return render(request, 'userprofile/register.html', {
         'form': UserCreationForm()
     })
-
-def userinforegister(request):
-    if request.method == 'POST':
-        form = UserinfoForm(data=request.POST)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user_id = request.user
-            instance.name = request.user.username
-            return redirect('my_listings-index')
-        else:
-            form = UserinfoForm()
-    return render(request, 'userprofile/register.html', {
-        'form': form
-    })
-
-"""def myprofile(request):
-    return render(request, 'navigation.html', context={'my_profile': myprofile})"""
-

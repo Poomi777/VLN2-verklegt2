@@ -7,4 +7,3 @@ class UserinfoForm(ModelForm):
     class Meta:
         model = Userinfo
         exclude = ['address', 'country', 'rating', 'image']
-
