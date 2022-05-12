@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth.models import User
 from . import views
 
 urlpatterns = [
@@ -8,5 +9,6 @@ urlpatterns = [
     path('create_listing', views.create_listing, name="create_listing"),
     path('my_delete_listing/<int:id>', views.my_delete_listing, name="my_delete_listing"),
     path('update_listing/<int:id>', views.update_listing, name="update_listing"),
+
 
 ]

@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from my_listings.forms.listing_form import ListingCreateForm, ListingUpdateForm
 from my_listings.models import Listing
+from userprofile.models import User
 from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.models import User
 
 # Create your views here.
 # mylist = [
@@ -11,7 +13,7 @@ from django.http import HttpResponse, JsonResponse
 # ]
 
 
-def index(request):
+"""def index(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         listings = [ {
@@ -22,6 +24,12 @@ def index(request):
         } for x in Listing.objects.filter(name__icontains=search_filter) ]
         return JsonResponse({'data': listings})
     context = {'listings': Listing.objects.all().order_by('listing_date')}
+    return render(request, 'my_listings/ml_index.html', context)"""
+
+
+def index(request):
+    current_user = request.user
+    context = {'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date')}
     return render(request, 'my_listings/ml_index.html', context)
 
 
@@ -49,6 +57,7 @@ def my_delete_listing(request, id):
     listing.delete()
     return redirect('homepage-index')
 
+
 def update_listing(request, id):
     instance = get_object_or_404(Listing, pk=id)
     if request.method == 'POST':
@@ -62,4 +71,3 @@ def update_listing(request, id):
         'form': form,
         'id': id
     })
-

@@ -7,12 +7,13 @@ from templates import homepage
 
 
 def index(request):
-    if 'search_filter' in request.GET:
+    """if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
 
-        return JsonResponse({'data': listings})
+        return JsonResponse({'data': listings})"""
     context = {'Listings': Listing.objects.all().order_by('name')}
     return render(request, 'homepage/index.html', context)
+
 
 def get_listing_by_id(request, id):
     return render(request, 'homepage/listing_details.html', {
