@@ -1,13 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
 
 
-class User(models.Model):
-    user_id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=100, null=False, blank=False)
-    password = models.CharField(max_length=100, null=False, blank=False)
+class Userinfo(models.Model):
+    user_id = models.ForeignKey(User, primary_key=True, on_delete=models.CASCADE, null=False)
     address = models.CharField(max_length=100, null=False, blank=False)
     country = models.CharField(max_length=100, null=False, blank=False)
     rating = models.IntegerField()
