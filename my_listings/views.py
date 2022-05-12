@@ -43,7 +43,9 @@ def create_listing(request):
     if request.method == 'POST':
         form = ListingCreateForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.user_id = request.user
+            instance.save()
             return redirect('my_listings-index')
     else:
         form = ListingCreateForm()

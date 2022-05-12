@@ -1,6 +1,7 @@
 from django.forms import ModelForm, widgets
 from django import forms
 from my_listings.models import Listing
+from django.contrib.auth.models import auth, User
 
 CONDITION_CHOICES = [('5', 'Perfect'),
                      ('4', 'Great'),
@@ -27,6 +28,7 @@ class ListingCreateForm(ModelForm):
             'listing_price': widgets.NumberInput(attrs={'class': 'form-control'}),
             'listing_condition': widgets.RadioSelect(attrs={'class': 'checkbox'}, choices=CONDITION_CHOICES),
             'listing_image_url': widgets.TextInput(attrs={'class': 'form_control', 'required': True})
+
             # 'on-sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
 

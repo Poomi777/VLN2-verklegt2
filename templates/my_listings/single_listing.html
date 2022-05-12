@@ -1,10 +1,11 @@
 {% load static %}
 
 <!-- NAME THESE CLASSES??? -->
-<div class="single-listing">
-    <a href="/my_listings/{{ item.listing_id }}">
+<div class="single-listing-container">
+    <a href="/my_listings/{{ item.listing_id }}" class="actual-listing-container">
         <img class="listing-img" src="{{ item.listing_image_url }}" />
-        <h4>{{ item.name }}</h4>
-        <p>{{ item.listing_description }}</p>
+        <h4 class="single-listing-name">{{ item.name }}</h4>
+        <p class="para-sl">{{ item.listing_description }}</p>
+        <input type="button" class="btn rightbtn">
     </a>
 </div>
