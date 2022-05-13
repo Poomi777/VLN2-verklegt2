@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Your Profile</h1>
+    <h1>{{ userprofile.user_name }}</h1>
     <img class="VL_image" src="{{ userprofile.image }}" style="width: 400px"/>
 
     <h3>Country: {{ userprofile.country }}</h3>

@@ -8,6 +8,7 @@ class UserinfoForm(ModelForm):
         model = Userinfo
         exclude = ['userinfo_id']
         widgets = {
+            'user_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'address': widgets.TextInput(attrs={ 'class': 'form-control'}),
             'country': widgets.TextInput(attrs={ 'class': 'form-control'}),
             'rating': widgets.NumberInput(attrs={ 'class': 'form-control'}),
