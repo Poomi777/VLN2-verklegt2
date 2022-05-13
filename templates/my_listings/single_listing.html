@@ -10,12 +10,11 @@
     </a>
         {% if item.listing_highest_offer == '-10' %}
             <p class="offertext">Listing Sold</p>
-        {% elif item.listing_highest_offer != "" %}
+        {% elif item.listing_highest_offer == '0' %}
+            <p class="offertext">Listing has no offers</p>
+            {% else %}
             <p class="offertext">Highest Offer: {{ item.listing_highest_offer }}</p>
         <a href="{% url 'Sold_listing' item.listing_id %}" ><input type="button" class="btn rightbtn" value="Accept Offer" /></a>
-
-            {% else %}
-            <p class="offertext">Listing has no offers</p>
         {% endif %}
         </div>
 </div>

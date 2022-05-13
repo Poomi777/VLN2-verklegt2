@@ -11,7 +11,7 @@ def index(request):
         search_filter = request.GET['search_filter']
 
         return JsonResponse({'data': listings})"""
-    context = {'Listings': Listing.objects.all().order_by('name')}
+    context = {'Listings': Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name')}
     return render(request, 'homepage/index.html', context)
 
 
