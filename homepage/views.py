@@ -8,6 +8,8 @@ from my_bids.forms import MakeBidForm
 from django.http import JsonResponse
 # Create your views here.
 from templates import homepage
+from userprofile.models import Userinfo
+
 
 def index(request):
     if request.GET.get('search'):
@@ -15,11 +17,14 @@ def index(request):
     else:
         listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name')
 
-    context = {'Listings': listing}
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
+    context = {'Listings': listing,
+               'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)}
     return render(request, 'homepage/index.html', context)
 
 
 def get_listing_by_id(request, id):
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     form = BidsCreateForm(request.POST or None)
     if form.is_valid():
         # if form value is greater than bid highest
@@ -47,7 +52,8 @@ def get_listing_by_id(request, id):
     return render(request, 'homepage/listing_details.html', {
         'listing': get_object_or_404(Listing, pk=id),
         'searchuser': request.user.id,
-        'form': form
+        'form': form,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 
 
@@ -57,6 +63,7 @@ def delete_listing(request, id):
     return redirect('homepage-index')
 
 def update_listing(request, id):
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     instance = get_object_or_404(Listing, pk=id)
     if request.method == 'POST':
         form = ListingUpdateForm(data=request.POST, instance=instance)
@@ -67,10 +74,12 @@ def update_listing(request, id):
         form = ListingUpdateForm(instance=instance)
     return render(request, 'my_listings/update_listing.html', {
         'form': form,
-        'id': id
+        'id': id,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 
 def make_bid(request, id):
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     bids = get_object_or_404(Bids)
     if request.method == 'POST':
         form = BidsCreateForm(data=request.POST, bids=bids)
@@ -83,7 +92,8 @@ def make_bid(request, id):
     else:
         form = BidsCreateForm()
     return render(request, 'homepage/listing_details.html', {
-        'form': form
+        'form': form,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 
 
