@@ -43,13 +43,10 @@
 
 
       </ul>
-
-      <form class="navbar-form navbar-left">
-          <input type="search" class="form-control" id="search-box" placeholder="Enter your search here..">
-            <button type="button" class="btn btn-default">Search</button>
+        <form action="">
+          <input type="text" name="search" placeholder="Search item" value="{{ request.GET.name }}">
+          <input type="submit" value="search">
       </form>
-
-
 
 
 

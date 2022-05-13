@@ -11,11 +11,12 @@ from templates import homepage
 
 
 def index(request):
-    """if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
+    if request.GET.get('search'):
+        listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name').filter(name__icontains=request.GET.get('search'))
+    else:
+        listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name')
 
-        return JsonResponse({'data': listings})"""
-    context = {'Listings': Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name')}
+    context = {'Listings': listing}
     return render(request, 'homepage/index.html', context)
 
 
@@ -26,6 +27,7 @@ def get_listing_by_id(request, id):
         instance.user_id = request.user
         instance.product_id = Listing.objects.get(listing_id=id)
         instance.save()
+        curr_listing = Listing.objects.get(pk=id)
         return redirect('/')
 
     return render(request, 'homepage/listing_details.html', {
