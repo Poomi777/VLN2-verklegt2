@@ -29,12 +29,29 @@ from django.contrib.auth.models import User
 
 def index(request):
     current_user = request.user
-    context = {'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date')}
+
+    form = 1 # placeholder
+
+    if request.method == 'POST':
+        listing_id = request.POST.get('listingid')
+        listing = Listing.objects.get(pk=listing_id)
+        offer = Offers
+        listing.listing_sold = True
+        listing.save()
+
+    else:
+        form = Listing_Selling_Update(request.POST or None)
+
+    context = {
+        'form': form,
+        'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date')
+    }
     return render(request, 'my_listings/ml_index.html', context)
 
 
 def get_listing_by_id(request, id):
     form = Listing_Selling_Update(request.POST or None)
+
     if form.is_valid():
         instance = form.save(commit=False)
         instance.listing_sold = True

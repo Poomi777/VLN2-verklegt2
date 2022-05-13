@@ -9,7 +9,6 @@ from django.http import JsonResponse
 # Create your views here.
 from templates import homepage
 
-
 def index(request):
     if request.GET.get('search'):
         listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name').filter(name__icontains=request.GET.get('search'))
@@ -38,6 +37,7 @@ def get_listing_by_id(request, id):
             instance.user_id = request.user
             instance.product_id = Listing.objects.get(listing_id=id)
             instance.save()
+
         else:
             print("the offer is not high enough")
 
