@@ -21,6 +21,11 @@ def userinforegister(request):
             instance.userinfo_id = request.user
             instance.save()
             return redirect('profile')
+
+    if instance == None:
+        return render(request, 'userprofile/profile_index.html', {
+            'form': UserinfoForm(instance=instance)})
+
     return render(request, 'userprofile/profile_index.html', {
         'form': UserinfoForm(instance=instance),
         'userprofile': get_object_or_404(Userinfo, userinfo_id=instance.userinfo_id)
