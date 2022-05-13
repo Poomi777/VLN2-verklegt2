@@ -6,4 +6,10 @@ class UserinfoForm(ModelForm):
 
     class Meta:
         model = Userinfo
-        exclude = ['address', 'country', 'rating', 'image']
+        exclude = ['userinfo_id']
+        widgets = {
+            'address': widgets.TextInput(attrs={ 'class': 'form-control'}),
+            'country': widgets.TextInput(attrs={ 'class': 'form-control'}),
+            'rating': widgets.NumberInput(attrs={ 'class': 'form-control'}),
+            'image': widgets.TextInput(attrs={ 'class': 'form-control'})
+}
