@@ -20,7 +20,7 @@ class ListingCreateForm(ModelForm):
 
     class Meta:
         model = Listing
-        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date']
+        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date', 'listing_sold']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'listing_description': widgets.TextInput(attrs={'class': 'form-control'}),
@@ -37,7 +37,7 @@ class ListingUpdateForm(ModelForm):
 
     class Meta:
         model = Listing
-        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date']
+        exclude = ['listing_id', 'listing_highest_offer', 'user_id', 'listing_date', 'listing_sold']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'listing_description': widgets.TextInput(attrs={'class': 'form-control'}),
