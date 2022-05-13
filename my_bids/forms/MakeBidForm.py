@@ -6,7 +6,7 @@ class BidsCreateForm(ModelForm):
 
     class Meta:
         model = Bids
-        exclude = ['user_id', 'product_id', 'bid_accepted']
+        exclude = ['buyer_id', 'listing_id', 'bid_accepted']
         widgets = {
             'bid_price': widgets.NumberInput(attrs={'class': 'form-control'})
         }

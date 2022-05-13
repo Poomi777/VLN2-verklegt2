@@ -18,7 +18,6 @@
     <a href="{% url 'update_listing' listing.listing_id %}" class="block btn btn-primary">Update listing</a>
     {% else %}
         <div class="biddiv">
-            <p class="biddp">Bid on item:</p>
             <form method="post">
                 {% csrf_token %}
                 {{ form }}

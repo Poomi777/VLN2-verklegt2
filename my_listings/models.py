@@ -24,4 +24,4 @@ class Listing(models.Model):
     listing_sold = models.BooleanField(default=False)
 
     def __str__(self):
-       return self.name, self.listing_id
+       return self.name
