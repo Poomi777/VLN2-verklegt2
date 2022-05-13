@@ -1,23 +1,28 @@
 {% extends "base.html" %}
+
 {% block content %}
     <div class="container-listing-desc">
     <h1 class="VL_header">{{ listing.name }}</h1>
     <p class="VL_description">{{ listing.listing_description }}</p>
     <p class="VL_listing_price">{{ listing.listing_price }} ISK</p>
-        <a href="{% url 'checkout-index' %}"><button>Buy now!</button> </a>
     <p class="VL_offer">Highest offer: {{ listing.listing_highest_offer }}</p>
-    <a href="{% url 'checkout-index' %}"><button>Buy now!</button> </a>
-        <div class="biddiv">
-            <input class="form form-control" value="Bid" type="number" />
-            <a href="{% url 'checkout-index' %}"></a><button>Confirm Bid</button>></a>
-        </div>
+
     <img class="VL_image" src="{{ listing.listing_image_url }}"  />
     <p class="VL_date">Date listed: {{ listing.listing_date }}</p>
     </div>
 
+    {% if user.is_authenticated %}
+
+    {% if listing.user_id_id == searchuser %}
     <a href="{% url 'delete_listing' listing.listing_id %}" class="block btn btn-primary">Delete listing</a>
     <a href="{% url 'update_listing' listing.listing_id %}" class="block btn btn-primary">Update listing</a>
-<!-- remember to put posted by: [name of user here] -->
-{% endblock %}
+    {% else %}
+        <div class="biddiv">
+            <p class="biddp">Bid on item:</p>
+            <input class="form form-control" value="Bid" type="number" />
+            <a href="{% url 'checkout-index' %}"></a><button>Confirm Bid</button>></a>
+        </div>
+    {% endif %}
+    {% endif %}
 
-<!-- % for candy_image in candy.candyimage_set.all % -->
+{% endblock %}

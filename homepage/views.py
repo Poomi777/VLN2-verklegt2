@@ -17,7 +17,8 @@ def index(request):
 
 def get_listing_by_id(request, id):
     return render(request, 'homepage/listing_details.html', {
-        'listing': get_object_or_404(Listing, pk=id)
+        'listing': get_object_or_404(Listing, pk=id),
+        'searchuser': request.user.id,
     })
 def delete_listing(request, id):
     listing = get_object_or_404(Listing, pk=id)
