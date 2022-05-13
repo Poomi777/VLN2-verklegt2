@@ -20,6 +20,7 @@
             {{ form }}
             <input name="{{ listing.listing_id }}" type="submit" value="Accept Offer">
             <input type="hidden" value="{{ item.listing_id }}" name="listingid">
+            <input type="hidden" value="{{ item.listing_highest_offer }}" name="listingoffer">
         </form>
         {% endif %}
         </div>

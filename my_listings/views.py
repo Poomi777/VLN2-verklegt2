@@ -37,12 +37,14 @@ def index(request):
 
     if request.method == 'POST':
         listing_id = request.POST.get('listingid')
+        listingoffer = request.POST.get('listingoffer')
         listing = Listing.objects.get(pk=listing_id)
-        bids = Bids.objects.get(product_id=listing_id)
-        for i in bids:
-            i.bid_accepted = True
+        print(listingoffer, listing_id)
+        wonbid = Bids.objects.get(listing_id=listing_id, bid_price=listingoffer)
+        wonbid.bid_accepted = True
         listing.listing_sold = True
         listing.save()
+        wonbid.save()
 
     else:
         form = Listing_Selling_Update(request.POST or None)
