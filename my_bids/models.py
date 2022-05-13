@@ -6,8 +6,8 @@ from userprofile.models import User
 
 
 class Bids(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    product_id = models.ForeignKey(Listing, on_delete=models.SET_NULL, null=True)
+    buyer_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    listing_id = models.ForeignKey(Listing, on_delete=models.SET_NULL, null=True)
     bid_price = models.FloatField()
     bid_accepted = models.BooleanField(null=True)
 

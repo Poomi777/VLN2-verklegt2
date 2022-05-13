@@ -38,6 +38,7 @@ def get_listing_by_id(request, id):
             instance.product_id = Listing.objects.get(listing_id=id)
             instance.save()
 
+
         else:
             print("the offer is not high enough")
 
