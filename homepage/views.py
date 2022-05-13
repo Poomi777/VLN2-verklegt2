@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from my_bids.forms.MakeBidForm import BidsCreateForm
 from my_listings.models import Listing
 from my_listings.forms.listing_form import ListingUpdateForm
+from my_bids.models import Bids
+from my_bids.forms import MakeBidForm
 from django.http import JsonResponse
 # Create your views here.
 from templates import homepage
@@ -37,6 +41,23 @@ def update_listing(request, id):
     return render(request, 'my_listings/update_listing.html', {
         'form': form,
         'id': id
+    })
+
+def make_bid(request, id):
+    listing = get_object_or_404(Listing, pk=id)
+    bids = get_object_or_404(Bids)
+    if request.method == 'POST':
+        form = BidsCreateForm(data=request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user_id = request.user.id
+            instance.product_id = id
+            instance.save()
+            return redirect('/')
+    else:
+        form = BidsCreateForm()
+    return render(request, f'homepage/{id}', {
+        'form': form
     })
 
 

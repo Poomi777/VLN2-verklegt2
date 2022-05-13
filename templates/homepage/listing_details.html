@@ -20,6 +20,8 @@
         <div class="biddiv">
             <p class="biddp">Bid on item:</p>
             <input class="form form-control" value="Bid" type="number" />
+            <form class="form form-horizontal" action="{% url 'bid_on_listing' %}" method="post">
+
             <a href="{% url 'checkout-index' %}"></a><button>Confirm Bid</button>></a>
         </div>
     {% endif %}
