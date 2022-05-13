@@ -37,11 +37,12 @@ def get_listing_by_id(request, id):
 
         if form.data['bid_price'] > curr_listing.listing_highest_offer:
             curr_listing.listing_highest_offer = form.data['bid_price']
-            curr_listing.save()
+
             instance = form.save(commit=False)
-            instance.user_id = request.user
-            instance.product_id = Listing.objects.get(listing_id=id)
+            instance.buyer_id = request.user
+            instance.listing_id = Listing.objects.get(listing_id=id)
             instance.save()
+            curr_listing.save()
 
 
         else:
