@@ -23,8 +23,8 @@ def get_listing_by_id(request, id):
     form = BidsCreateForm(request.POST or None)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.user_id = request.user.id
-        instance.product_id = id
+        instance.user_id = request.user
+        instance.product_id = Listing.objects.get(listing_id=id)
         instance.save()
         return redirect('/')
 
