@@ -1,0 +1,19 @@
+{% load static %}
+
+<!-- NAME THESE CLASSES??? -->
+<div class="single-listing-container">
+    <a href="/my_bids/{{ item.listing_id }}" class="actual-listing-container">
+        <img class="listing-img" src="{{ item.listing_image_url }}" />
+        <h4 class="single-listing-name">{{ item.name }}, {{ item.listing_price }}$</h4>
+        <p class="para-sl">{{ item.listing_description }}</p>
+        <div class="offer">
+    </a>
+    </div>
+        {% if item.listing_highest_offer == '-10' %}
+            <p class="offertext">Listing Sold</p>
+        {% elif item.listing_highest_offer == '0' %}
+            <p class="offertext">Listing has no offers</p>
+            {% else %}
+            <p class="offertext">Highest Offer: {{ item.listing_highest_offer }}</p>
+        {% endif %}
+        </div>

@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>airforce one, my first bids</p>
+    <h1 class="homepage_title"> My bids </h1>
+    <div class="list-listings">
+        {% for item in listings %}
+            {% include 'my_bids/single_bid.html' with item=item %}
+        {% endfor %}
+    </div>
+
+
 {% endblock %}
