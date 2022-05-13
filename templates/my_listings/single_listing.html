@@ -9,15 +9,19 @@
         <div class="offer">
     </a>
     </div>
-        {% if item.listing_highest_offer == '-10' %}
+        {% if item.listing_sold == True %}
             <p class="offertext">Listing Sold</p>
         {% elif item.listing_highest_offer == '0' %}
             <p class="offertext">Listing has no offers</p>
             {% else %}
             <p class="offertext">Highest Offer: {{ item.listing_highest_offer }}</p>
-        <a href="{% url 'Sold_listing' item.listing_id %}" ><input type="button" class="btn rightbtn" value="Accept Offer" /></a>
+        <form class="Acceptoffer" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input name="{{ listing.listing_id }}" type="submit" value="Accept Offer">
+            <input type="hidden" value="{{ item.listing_id }}" name="listingid">
+        </form>
         {% endif %}
         </div>
 
 
-<a href="{% url 'Sold_listing' item.listing_id %}" ><input type="button" class="btn rightbtn" value="Accept Offer" /></a>

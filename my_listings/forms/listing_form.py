@@ -49,8 +49,10 @@ class ListingUpdateForm(ModelForm):
         }
 
 class Listing_Selling_Update(ModelForm):
-    model = Listing
-    exclude = ['listing_id', 'user_id', 'name', 'list', 'listing_category', 'listing_description', 'listing_condition', 'listing_price', 'listing_image_url', 'listing_date']
-    widgets = {
-        'listing_highest_offer': widgets.NumberInput(attrs={'class': 'form-control'})
-    }
+
+    class Meta:
+        model = Listing
+        exclude = ['listing_id', 'user_id', 'name', 'list', 'listing_category', 'listing_description', 'listing_condition', 'listing_price', 'listing_sold', 'listing_highest_offer','listing_image_url', 'listing_date']
+        widgets = {
+        }
+
