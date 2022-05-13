@@ -10,7 +10,7 @@
     </a>
     </div>
         {% if item.listing_sold == True %}
-            <p class="offertext">Listing Sold</p>
+            <p class="offertext">Listing accepted <a href="{% url 'checkout-index' listing.listing_id %}"><button>Checkout</button></a></p>
             {% if mybids.bid_accepted == True %}
                 <a href="{% url 'checkout-index' listing.listing_id %}"><button>Checkout</button></a>
                 {% endif %}
