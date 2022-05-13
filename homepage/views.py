@@ -47,7 +47,7 @@ def make_bid(request, id):
     listing = get_object_or_404(Listing, pk=id)
     bids = get_object_or_404(Bids)
     if request.method == 'POST':
-        form = BidsCreateForm(data=request.POST)
+        form = BidsCreateForm(data=request.POST, bids=bids)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user_id = request.user.id

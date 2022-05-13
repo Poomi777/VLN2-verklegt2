@@ -19,10 +19,13 @@
     {% else %}
         <div class="biddiv">
             <p class="biddp">Bid on item:</p>
-            <input class="form form-control" value="Bid" type="number" />
-            <form class="form form-horizontal" action="{% url 'bid_on_listing' %}" method="post">
+            <form class="form form-horizontal" action="{% url 'bid_on_listing' listing.listing_id %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Make bid" class="btn btn-primary pull-right" style="clear:both; margin: 10px 0" />
+            </form>
+            <form class="form form-horizontal" action="{% url 'bid_on_listing' listing.listing_id %}" method="post"></form>
 
-            <a href="{% url 'checkout-index' %}"></a><button>Confirm Bid</button>></a>
         </div>
     {% endif %}
     {% endif %}

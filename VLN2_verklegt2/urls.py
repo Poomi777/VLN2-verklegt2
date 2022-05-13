@@ -24,7 +24,6 @@ urlpatterns = [
     path('my_bids/', include('my_bids.urls')),
     path('categories/', include('categories.urls')),
     path('checkout/', include('checkout.urls')),
-    path('view_listing/', include('view_listing.urls')),
     path('userprofile/', include('userprofile.urls')),
     path('login_page', include('login_page.urls')),
 ]
