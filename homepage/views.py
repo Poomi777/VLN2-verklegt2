@@ -20,10 +20,21 @@ def index(request):
 
 
 def get_listing_by_id(request, id):
+    form = BidsCreateForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.user_id = request.user.id
+        instance.product_id = id
+        instance.save()
+        return redirect('/')
+
     return render(request, 'homepage/listing_details.html', {
         'listing': get_object_or_404(Listing, pk=id),
         'searchuser': request.user.id,
+        'form': form
     })
+
+
 def delete_listing(request, id):
     listing = get_object_or_404(Listing, pk=id)
     listing.delete()
@@ -44,7 +55,6 @@ def update_listing(request, id):
     })
 
 def make_bid(request, id):
-    listing = get_object_or_404(Listing, pk=id)
     bids = get_object_or_404(Bids)
     if request.method == 'POST':
         form = BidsCreateForm(data=request.POST, bids=bids)
@@ -56,7 +66,7 @@ def make_bid(request, id):
             return redirect('/')
     else:
         form = BidsCreateForm()
-    return render(request, f'{id}', {
+    return render(request, 'homepage/listing_details.html', {
         'form': form
     })
 
