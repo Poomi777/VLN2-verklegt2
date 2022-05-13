@@ -34,9 +34,15 @@ def index(request):
 
 
 def get_listing_by_id(request, id):
+    form = Listing_Selling_Update(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.listing_sold = True
+        instance.save()
     return render(request, 'my_listings/listing_details.html', {
         'listing': get_object_or_404(Listing, pk=id),
-        'searchuser': request.user.id
+        'searchuser': request.user.id,
+        'form': form
     })
 
 
