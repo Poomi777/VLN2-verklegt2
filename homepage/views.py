@@ -56,7 +56,7 @@ def make_bid(request, id):
             return redirect('/')
     else:
         form = BidsCreateForm()
-    return render(request, f'homepage/{id}', {
+    return render(request, f'{id}', {
         'form': form
     })
 
