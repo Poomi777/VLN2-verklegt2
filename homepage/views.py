@@ -13,9 +13,9 @@ from userprofile.models import Userinfo
 
 def index(request):
     if request.GET.get('search'):
-        listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name').filter(name__icontains=request.GET.get('search'))
+        listing = Listing.objects.all().exclude(listing_sold=True).order_by('name').filter(name__icontains=request.GET.get('search'))
     else:
-        listing = Listing.objects.all().exclude(listing_highest_offer='-10').order_by('name')
+        listing = Listing.objects.all().exclude(listing_sold=True).order_by('name')
 
     userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     context = {'Listings': listing,
