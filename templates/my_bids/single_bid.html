@@ -9,8 +9,10 @@
         <div class="offer">
     </a>
     </div>
-        {% if item.listing_highest_offer == '-10' %}
+        {% if item.listing_sold == 'sold' %}
             <p class="offertext">Listing Sold</p>
+            {% if mybids.bid_accepted == True %}
+
         {% elif item.listing_highest_offer == '0' %}
             <p class="offertext">Listing has no offers</p>
             {% else %}
