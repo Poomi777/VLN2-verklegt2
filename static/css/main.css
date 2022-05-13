@@ -141,3 +141,29 @@ body {
 .VL_price {
     align-self: end;
 }
+/* footer */
+.mainfooter {
+    border-top: 2px solid rgba(201, 160, 28, 0.6);
+    background-color: white;
+    padding: .25em 0;
+    max-height: fit-content;
+}
+
+.mainfootercontainer {
+    display: flex;
+    align-items: center;
+}
+
+.mainfootercontainer ul {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footernav {
+    padding: 0 .5em
+}
+
+.footernav img {
+    width: 30px;
+    height: 30px;
+}
