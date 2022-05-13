@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    {% for list in My_categorires %}
-        <div>
-        <h4>{{ list.Categorie }}</h4>
-        <p>{{ list.product }}</p>
-        </div>
-    {% endfor %}
 
     <h2 class="newlist-header" xmlns="http://www.w3.org/1999/html">Review order</h2>
-    <div class="newlist-container">
+    <div class="container-listing-desc">
+
+    <h2>Product: {{ listing.name }}</h2>
+    <h4>Description: {{ listing.listing_description }}</h4>
+    <img src="{{ listing.listing_image_url }}" />
+    <h4>Condition: {{ listing.listing_condition }}</h4>
+    <h4>Date posted: {{ listing.listing_date }}</h4>
 
     </div>
     <div class="confirm-cancel button">
-        <button><a href="{% url 'payment-index' %}">Previous</a></button>
-        <button><a href="{% url 'order_confirmed-index' %}">Confirm payment</a></button>
+        <button><a href="{% url 'payment-index' listing.listing_id %}">Previous</a></button>
+        <button><a href="{% url 'order_confirmed-index' listing.listing_id %}">Confirm payment</a></button>
     </div>
 {% endblock %}

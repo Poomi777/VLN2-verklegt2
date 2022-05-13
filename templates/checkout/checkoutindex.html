@@ -7,8 +7,8 @@
         <p>{{ list.product }}</p>
         </div>
     {% endfor %}
-
-    <form class="form form-horizontal" action="{% url 'checkout-index' %}" method="post">
+    <h1>Shiping Information</h1>
+    <form class="form form-horizontal" action="{% url 'payment-index' listing.listing_id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <button><a href="{% url 'homepage-index' %}">Previous</a></button>
@@ -47,8 +47,8 @@
         </div>
     </div>
     <div class="confirm-cancel button">
-        <button><a href=" {% url 'homepage-index' %} ">Previous</a></button>
-        <button><a href=" {% url 'payment-index' %} ">Next</a></button>
+        <button><a href=" {#% url 'homepage-index' %#} ">Previous</a></button>
+        <button><a href=" {#% url 'payment-index' %#} ">Next</a></button>
     </div>
 
     -->
