@@ -23,11 +23,23 @@ def index(request):
 def get_listing_by_id(request, id):
     form = BidsCreateForm(request.POST or None)
     if form.is_valid():
-        instance = form.save(commit=False)
-        instance.user_id = request.user
-        instance.product_id = Listing.objects.get(listing_id=id)
-        instance.save()
+        # if form value is greater than bid highest
+        # add to my bids
+        # update listing bid highest
+
+        # form value = form.value
+        # if yes =
         curr_listing = Listing.objects.get(pk=id)
+
+        if form.data['bid_price'] > curr_listing.listing_highest_offer:
+            curr_listing.listing_highest_offer = form.data['bid_price']
+            curr_listing.save()
+            instance = form.save(commit=False)
+            instance.user_id = request.user
+            instance.product_id = Listing.objects.get(listing_id=id)
+            instance.save()
+        else:
+            print("the offer is not high enough")
 
         return redirect('/')
 
