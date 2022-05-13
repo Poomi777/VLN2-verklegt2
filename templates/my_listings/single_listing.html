@@ -15,11 +15,11 @@
             <p class="offertext">Listing has no offers</p>
             {% else %}
             <p class="offertext">Highest Offer: {{ item.listing_highest_offer }}</p>
-        <form class="Acceptoffer">
+        <form class="Acceptoffer" method="post">
+            {% csrf_token %}
             <input type="submit" value="Accept Offer">
         </form>
         {% endif %}
         </div>
 
 
-<a href="{% url 'Sold_listing' item.listing_id %}" ><input type="button" class="btn rightbtn" value="Accept Offer" /></a>
