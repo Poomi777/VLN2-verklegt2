@@ -28,6 +28,7 @@ def get_listing_by_id(request, id):
         instance.product_id = Listing.objects.get(listing_id=id)
         instance.save()
         curr_listing = Listing.objects.get(pk=id)
+
         return redirect('/')
 
     return render(request, 'homepage/listing_details.html', {
