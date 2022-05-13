@@ -7,13 +7,13 @@ $(document).ready(function() {
            type: 'GET',
            success: function(resp) {
                var newHtml = resp.data.map(d => {
-                   return ´<div class="Single_listing">
+                   return <div class="Single_listing">
                                 <a href="/my_listings/${d.id}">
-                                    <img class="listing_img" src="${d.listing_image_url" />
+                                    <img class="listing_img" src="${d.listing_image_url"  alt="picture error"/>
                                     <h4>${d.name}</h4>
                                     <p>${d.description}</p>
                                 </a>
-                            </div>´
+                            </div>
                });
                $('.list-listings').html(newHtml.join(''));
                $('#search-box').val('');
