@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from my_listings.forms.listing_form import ListingCreateForm, ListingUpdateForm, Listing_Selling_Update
 from my_listings.models import Listing
-from userprofile.models import User
+from userprofile.models import User, Userinfo
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 
@@ -28,19 +28,24 @@ from django.contrib.auth.models import User
 
 
 def index(request):
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     current_user = request.user
-    context = {'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date')}
-    return render(request, 'my_listings/ml_index.html', context)
+    context = {'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date'),
+               'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)}
+    return render(request, 'my_listings/ml_index.html', context, )
 
 
 def get_listing_by_id(request, id):
+    instance = Userinfo.objects.filter(userinfo_id=request.user).first()
     return render(request, 'my_listings/listing_details.html', {
         'listing': get_object_or_404(Listing, pk=id),
-        'searchuser': request.user.id
+        'searchuser': request.user.id,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=instance.userinfo_id)
     })
 
 
 def create_listing(request):
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     if request.method == 'POST':
         form = ListingCreateForm(data=request.POST)
         if form.is_valid():
@@ -51,7 +56,8 @@ def create_listing(request):
     else:
         form = ListingCreateForm()
     return render(request, 'my_listings/create_listing.html', {
-        'form': form
+        'form': form,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 
 
@@ -63,6 +69,7 @@ def my_delete_listing(request, id):
 
 def update_listing(request, id):
     instance = get_object_or_404(Listing, pk=id)
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     if request.method == 'POST':
         form = ListingUpdateForm(data=request.POST, instance=instance)
         if form.is_valid():
@@ -72,12 +79,14 @@ def update_listing(request, id):
         form = ListingUpdateForm(instance=instance)
     return render(request, 'my_listings/update_listing.html', {
         'form': form,
-        'id': id
+        'id': id,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 
 
 def sold_listing(request, id):
     instance = get_object_or_404(Listing, pk=id)
+    userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     if request.method == 'POST':
         form = Listing_Selling_Update(data=request.POST, instance=instance)
         if form.is_valid():
@@ -89,6 +98,7 @@ def sold_listing(request, id):
         form = Listing_Selling_Update(instance=instance)
     return render(request, 'my_listings/ml_index.html', {
         'form': form,
-        'id': id
+        'id': id,
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     })
 

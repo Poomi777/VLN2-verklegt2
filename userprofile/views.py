@@ -56,3 +56,9 @@ def register(request):
     return render(request, 'userprofile/login.html', {
         'form': UserCreationForm()
     })
+
+def user_pic(request):
+    instance = Userinfo.objects.filter(userinfo_id=request.user).first()
+    return render(request, 'userprofile/user_pic.html', {
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=instance.userinfo_id)
+    })

@@ -36,6 +36,7 @@
         <li class="nav-link item3"><a href="{% url 'my_bids-index' %}">My bids</a></li>
           <li class="nav-link item4"><a href="{% url 'profile' %}">Profile</a></li>
               <li class="nav-link item5"><a href="{% url 'logout' %}">Logout</a></li>
+              <a href="{% url 'profile' %}">{% include 'userprofile/user_pic.html' %}</a>
           {% else %}
           <li class="nav-link item6"><a href="{% url 'login' %}">Login</a></li>
               <li class="nav-link item7"><a href="{% url 'register' %}">Register</a></li>
