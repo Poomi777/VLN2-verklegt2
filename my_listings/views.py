@@ -32,11 +32,6 @@ from django.contrib.auth.models import User
 def index(request):
     userinfovar = Userinfo.objects.filter(userinfo_id=request.user).first()
     current_user = request.user
-<<<<<<< HEAD
-    context = {'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date'),
-               'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)}
-    return render(request, 'my_listings/ml_index.html', context, )
-=======
 
     form = None
 
@@ -54,10 +49,10 @@ def index(request):
 
     context = {
         'form': form,
-        'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date')
+        'listings': Listing.objects.filter(user_id_id=current_user.id).order_by('listing_date'),
+        'userprofile': get_object_or_404(Userinfo, userinfo_id=userinfovar.userinfo_id)
     }
     return render(request, 'my_listings/ml_index.html', context)
->>>>>>> 7552849cd95ee0f5fc67dbaf1ba71993c756c3e0
 
 
 def get_listing_by_id(request, id):
