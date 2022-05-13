@@ -4,7 +4,11 @@
     <h1 class="VL_header">{{ listing.name }}</h1>
     <p class="VL_description">{{ listing.listing_description }}</p>
     <p class="VL_listing_price">{{ listing.listing_price }} ISK</p>
-        <a href="{% url 'checkout-index' %}">"<button>Buy now!</button> </a>
+        <a href="{% url 'checkout-index' %}"><button>Buy now!</button> </a>
+        <div class="biddiv">
+            <input class="form form-control" value="Bid" type="number" />
+            <a href="{% url 'checkout-index' %}"></a><button>Confirm Bid</button>></a>
+        </div>
     <p class="VL_offer">Highest offer: {{ listing.listing_highest_offer }}</p>
     <img class="VL_image" src="{{ listing.listing_image_url }}"  />
     <p class="VL_date">Date listed: {{ listing.listing_date }}</p>
