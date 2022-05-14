@@ -53,7 +53,7 @@ def register(request):
            # userinforegister(request)
             return redirect('login')
 
-    return render(request, 'userprofile/login.html', {
+    return render(request, 'userprofile/register.html', {
         'form': UserCreationForm()
     })
 
