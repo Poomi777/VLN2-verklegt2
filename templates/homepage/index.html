@@ -4,6 +4,7 @@
     <link rel=”stylesheet” href=”{% static 'css/listings.css' %}" />
 {% endblock %}
 {% block content %}
+    {% if user.is_authenticated %}
     <div class="homepagecss">
         <h2 class="homepage_title">Active Listings</h2>
     </div>
@@ -11,5 +12,8 @@
     {% for list in Listings %}
         {% include 'homepage/single_listing.html' with list=list %}
     {% endfor %}
+    {% else %}
+        <h2>Please login to see our website</h2>
+    {% endif %}
     </div>
 {% endblock %}

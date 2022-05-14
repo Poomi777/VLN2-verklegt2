@@ -3,6 +3,6 @@
     <form method="post", class="form form-horizontal">
     {% csrf_token %}
     {{ form }}
-        <input type="submit" class="btn btn-primary" value="Login" />
+        <a href="{% url 'homepage-index' %}"><input type="submit" class="btn btn-primary" value="Login" /></a>
     </form>
 {% endblock %}
